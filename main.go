@@ -18,6 +18,7 @@ func main() {
 	group := router.Group("tripmgts")
 
 	group.GET("/trip/:id", api.TripGet)
+	group.GET("/trips", api.TripsGet)
 	group.POST("/trip", api.TripCreate)
 	router.Run(fmt.Sprintf(":%v", port))
 	//group.DELETE("/account/:id", api.AccountDelete)
