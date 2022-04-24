@@ -4,7 +4,7 @@ go 1.17
 
 require (
 	github.com/ProjectTravelPartner/commonclient v0.0.0-20220423130918-536fc18985b3
-	github.com/ProjectTravelPartner/dbclient v0.0.5
+	github.com/ProjectTravelPartner/dbclient v0.0.6
 	github.com/gin-gonic/gin v1.7.7
 )
 

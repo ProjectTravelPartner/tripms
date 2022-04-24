@@ -39,3 +39,20 @@ func TripsGet(c *gin.Context) {
 	}
 	commonclient.RespOK(c, out)
 }
+
+func TripUpdate(c *gin.Context) {
+	var req models.TripUpdateReq
+	var resp bool
+	c.BindJSON(&req)
+	accid := c.Query("accid")
+	if accid != "" {
+		accidint, _ := strconv.ParseUint(accid, 10, 64)
+		resp, _ = dao.TripUpdateByAccID(accidint, req)
+	}
+	tripid := c.Query("id")
+	if tripid != "" {
+		idint, _ := strconv.ParseUint(tripid, 10, 64)
+		resp, _ = dao.TripUpdateByID(idint, req)
+	}
+	commonclient.RespOK(c, resp)
+}

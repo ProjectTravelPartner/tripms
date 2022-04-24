@@ -20,6 +20,7 @@ func main() {
 	group.GET("/trip/:id", api.TripGet)
 	group.GET("/trips", api.TripsGet)
 	group.POST("/trip", api.TripCreate)
+	group.PUT("/trip", api.TripUpdate)
 	router.Run(fmt.Sprintf(":%v", port))
 	//group.DELETE("/account/:id", api.AccountDelete)
 }

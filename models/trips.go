@@ -12,3 +12,7 @@ type Trip struct {
 	Accomodation  uint64    `json:"accomodation"`
 	CostPerPerson string    `json:"costperperson"`
 }
+
+type TripUpdateReq struct {
+	Accomodation uint64 `json:"accomodation"`
+}

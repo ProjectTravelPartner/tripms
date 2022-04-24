@@ -100,3 +100,34 @@ func getTripsFromRow(row *sql.Rows) models.Trip {
 	)
 	return data
 }
+
+func TripUpdateByAccID(accid uint64, data models.TripUpdateReq) (bool, error) {
+	qry := `UPDATE 
+				trips
+			SET
+				accomodation=?
+			WHERE
+				accid=?
+				`
+	fmt.Println("#%v", data)
+	_, err := dbclient.ExecGetAffRows(qry, data.Accomodation, accid)
+	if err != nil {
+		return false, nil
+	}
+	return true, nil
+}
+
+func TripUpdateByID(id uint64, data models.TripUpdateReq) (bool, error) {
+	qry := `UPDATE 
+				trips
+			SET
+				accomodation=?
+			WHERE
+				id=?
+				`
+	_, err := dbclient.ExecGetAffRows(qry, data.Accomodation, id)
+	if err != nil {
+		return false, nil
+	}
+	return true, nil
+}
